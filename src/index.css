@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+div#root,
+.app {
+    height: 100%;
+}
+
+.app {
+    background-color: #111;
+}
+
+.player {
+    height: 150px;
+    background-color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
