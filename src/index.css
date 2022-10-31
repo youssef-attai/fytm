@@ -1,25 +1,110 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body,
 div#root,
 .app {
-    height: 100%;
+  height: 100%;
 }
 
 .app {
-    background-color: #111;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.container {
+  flex-grow: 1;
+  display: flex;
+}
+
+.sidebar {
+  background-color: #000;
+  flex-grow: 1;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+
+.home {
+  padding: 30px;
+  background-color: #121212;
+  flex-grow: 1;
 }
 
 .player {
-    height: 150px;
-    background-color: #000;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.input-with-icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 60px;
+  background-color: white;
+  margin: 10px;
+}
+
+.input-with-icon input {
+  flex-grow: 1;
+  border: none;
+  margin-right: 10px;
+}
+
+.input-with-icon input:focus {
+  outline: none;
+}
+
+.input-with-icon i {
+  padding: 10px;
+}
+
+.track {
+  width: 100%;
+  height: auto;
+  display: flex;
+  padding: 10px;
+}
+
+.track img {
+  width: 400px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.track .track-details {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.track .track-details .track-title {
+  color: white;
+  font-size: x-large;
+  padding-bottom: 10px;
+}
+
+.track .track-details .track-author {
+  color: darkgray;
+  font-size: x-large;
+  padding-bottom: 10px;
+}
+
+.search-results {
+  overflow-y: scroll;
+  height: 400px;
 }
