@@ -80,6 +80,7 @@ div#root,
   height: auto;
   display: flex;
   padding: 10px;
+  cursor: pointer;
 }
 
 .track img {
