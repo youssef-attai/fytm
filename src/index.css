@@ -28,6 +28,9 @@ div#root,
   flex-grow: 1;
   min-width: 300px;
   max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -107,4 +110,11 @@ div#root,
 .search-results {
   overflow-y: scroll;
   height: 400px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  text-transform: uppercase;
 }
