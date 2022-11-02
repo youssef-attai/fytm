@@ -3,7 +3,7 @@ import axios from "axios";
 import InputWithIcon from "../Components/InputWithIcon";
 import Track from "../Components/Track";
 
-const Home = (props) => {
+const Home = ({ setPlayQueue, playQueue }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
@@ -30,7 +30,12 @@ const Home = (props) => {
       />
       <div className="search-results">
         {results.map((res) => (
-          <Track track={res} key={res.watch_id} />
+          <Track
+            playQueue={playQueue}
+            setPlayQueue={setPlayQueue}
+            track={res}
+            key={res.watch_id}
+          />
         ))}
       </div>
     </div>

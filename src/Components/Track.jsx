@@ -1,11 +1,6 @@
-import axios from "axios";
-
-const Track = ({ track }) => {
+const Track = ({ track, playQueue, setPlayQueue }) => {
   const getAudio = () => {
-    axios
-      .get(`https://wmlhgm.deta.dev/audio/${track.watch_id}`)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    setPlayQueue([...playQueue, track.audio_url])
   };
 
   return (
