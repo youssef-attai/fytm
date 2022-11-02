@@ -1,34 +1,37 @@
 import Player from "./Player";
-import Home from "./Pages/Home";
+import AddMusic from "./AddMusic";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useState } from "react";
+import {heartSVG, plusSVG, queueSVG, youtubeSVG} from "./icons"
 
 const App = (props) => {
-  const [playQueue, setPlayQueue] = useState([]);
-
   return (
     <div className="app">
-      <div className="container">
-        <Router>
+      <Router>
+        <div className="container">
           <nav className="sidebar">
-            <Link className="nav-link" to="/">
-              Home
+            <h1 className="logo">
+              <img src={youtubeSVG} alt="FYTM Logo" />
+              Free YouTube Music
+            </h1>
+            <Link className="nav-link" to="/add">
+            <img className="svg-icon" src={plusSVG} alt="FYTM Logo" />
+              Add Music
             </Link>
-            <Link className="nav-link" to="/my">
-              My playlist
+            <Link className="nav-link" to="/queue">
+            <img className="svg-icon" src={queueSVG} alt="FYTM Logo" />
+              Queue
+            </Link>
+            <Link className="nav-link" to="/fav">
+            <img className="svg-icon" src={heartSVG} alt="FYTM Logo" />
+              My Favorites
             </Link>
           </nav>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Home playQueue={playQueue} setPlayQueue={setPlayQueue} />
-              }
-            />
+            <Route path="/add" element={<AddMusic />} />
           </Routes>
-          <Player playQueue={playQueue} />
-        </Router>
-      </div>
+        </div>
+        <Player />
+      </Router>
     </div>
   );
 };

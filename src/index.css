@@ -1,3 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Homenaje&family=Jost:wght@400;500&display=swap");
+
+:root {
+  --background: #191919;
+  --player: #1e1e1e;
+  --black: #000;
+  --charcoalgrey: #5e5e5e;
+  --silver: #b8b8b8;
+  --white: #fff;
+  --red: #cd201f;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,24 +19,61 @@
 html,
 body,
 div#root,
-.app {
+.app,
+.page__add-music {
+  background-color: var(--background);
   height: 100%;
 }
 
 .app {
-  background-color: #111;
   display: flex;
   flex-direction: column;
 }
-
 
 .container {
   flex-grow: 1;
   display: flex;
 }
 
+.page__add-music {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.page__add-music h2 {
+  color: var(--white);
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+}
+
+.page__add-music input {
+  font-family: "Jose", sans-serif;
+  font-size: large;
+  padding-left: 20px;
+  border: none;
+  border-radius: 32px;
+  width: 400px;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 0;
+}
+
+.page__add-music input:focus {
+  outline: none;
+}
+
+.page__add-music iframe {
+  background-color: var(--black);
+  border: none;
+  margin-bottom: 10px;
+}
+
 .sidebar {
-  background-color: #000;
+  background-color: var(--black);
   flex-grow: 1;
   min-width: 300px;
   max-width: 300px;
@@ -33,89 +82,88 @@ div#root,
   align-items: center;
 }
 
+.sidebar a {
+  user-select: none;
+  font-size: larger;
+  font-family: "Jost", sans-serif;
+  color: var(--white);
+  font-weight: 400;
+  text-decoration: none;
+  width: 100%;
+  padding-top: 20px;
+  margin-left: 50px;
+  display: flex;
+}
 
-.home {
-  padding: 30px;
-  background-color: #121212;
-  flex-grow: 1;
+.svg-icon {
+  width: 30px;
+  filter: invert(100%);
+  margin-right: 20px;
 }
 
 .player {
   position: fixed;
   bottom: 0;
-  right: 0;
+  background-color: var(--player);
   width: 100%;
-  height: 100px;
-  background-color: #1a1a1a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 140px;
+  max-height: 140px;
 }
 
-.input-with-icon {
+.logo {
+  user-select: none;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  font-size: xx-large;
+  color: var(--white);
+  font-family: "Homenaje", sans-serif;
+  font-weight: 500;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-radius: 60px;
-  background-color: white;
-  margin: 10px;
 }
 
-.input-with-icon input {
-  flex-grow: 1;
+.logo img {
+  padding-right: 10px;
+  width: 50px;
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.bg-grey {
+  background-color: var(--charcoalgrey);
+}
+
+.bg-black {
+  background-color: var(--black);
+}
+
+.fg-white {
+  color: var(--white);
+}
+
+button {
   border: none;
-  margin-right: 10px;
-}
-
-.input-with-icon input:focus {
-  outline: none;
-}
-
-.input-with-icon i {
-  padding: 10px;
-}
-
-.track {
-  width: 100%;
-  height: auto;
-  display: flex;
-  padding: 10px;
   cursor: pointer;
-}
-
-.track img {
-  width: 400px;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 25px;
-}
-
-.track .track-details {
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 15px;
+  font-family: "Jose", sans-serif;
+  font-size: medium;
 }
 
-.track .track-details .track-title {
-  color: white;
-  font-size: x-large;
-  padding-bottom: 10px;
+.buttons-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.track .track-details .track-author {
-  color: darkgray;
-  font-size: x-large;
-  padding-bottom: 10px;
+.buttons-group button {
+  margin: 5px;
 }
 
-.search-results {
-  overflow-y: scroll;
-  height: 400px;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  padding: 20px;
-  text-transform: uppercase;
+.hidden {
+  display: none;
 }
