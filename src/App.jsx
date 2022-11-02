@@ -26,6 +26,7 @@ const App = (props) => {
       old.push(first);
       return old;
     });
+    audioRef.current.play();
   };
 
   const addToQueue = (track) => {
@@ -49,7 +50,7 @@ const App = (props) => {
         })
         .catch((err) => console.log("CANNOT"));
     }
-  }
+  };
 
   const handlePlayNowClicked = (youtubeID) => {
     const exists = queue.find((track) => track.watch_id === youtubeID);
@@ -90,7 +91,13 @@ const App = (props) => {
           <Routes>
             <Route
               path="/add"
-              element={<AddMusic handlePlayNowClicked={handlePlayNowClicked} handleAddToQueue={handleAddToQueue}/>}
+              element={
+                <AddMusic
+                  queue={queue}
+                  handlePlayNowClicked={handlePlayNowClicked}
+                  handleAddToQueue={handleAddToQueue}
+                />
+              }
             />
             <Route
               path="/queue"

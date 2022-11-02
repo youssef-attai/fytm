@@ -19,10 +19,16 @@
 html,
 body,
 div#root,
-.app,
-.page__add-music {
+.app {
   background-color: var(--background);
   height: 100%;
+}
+
+
+.page__add-music,
+.page__queue {
+  background-color: var(--background);
+  height: 80%;
 }
 
 .app {
@@ -35,12 +41,14 @@ div#root,
   display: flex;
 }
 
-.page__add-music {
+.page__add-music,
+.page__queue {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 25px;
+  justify-content: center;
+  padding-top: 5px;
 }
 
 .page__add-music h2 {
@@ -104,7 +112,7 @@ div#root,
 .svg-icon {
   width: 30px;
   filter: invert(100%);
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .player {
@@ -112,8 +120,8 @@ div#root,
   bottom: 0;
   background-color: var(--player);
   width: 100%;
-  min-height: 140px;
-  max-height: 140px;
+  height: 20%;
+  max-height: 20%;
 }
 
 .logo {
@@ -160,6 +168,10 @@ button {
   font-size: medium;
 }
 
+button:disabled {
+  opacity: 50%;
+}
+
 .buttons-group {
   display: flex;
   justify-content: space-between;
@@ -172,6 +184,23 @@ button {
 
 .hidden {
   display: none;
+}
+
+.page__queue {
+  font-family: "Jost", sans-serif;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.page__queue ul {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.page__queue h3 {
+  color: var(--white);
+  margin: 20px;
 }
 
 .track {

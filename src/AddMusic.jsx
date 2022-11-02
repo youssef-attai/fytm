@@ -2,18 +2,21 @@ import ButtonWithIcon from "./Components/ButtonWithIcon";
 import { heartSVG, queueSVG, playSVG } from "./icons";
 import { useRef, useState } from "react";
 
-const AddMusic = ({ handlePlayNowClicked, handleAddToQueue }) => {
+const AddMusic = ({ handlePlayNowClicked, handleAddToQueue, queue }) => {
   const ytRegex = /\S{11}/;
 
   const [youtubeID, setYoutubeID] = useState("");
   const youtubeURLRef = useRef();
   const youtubeFrameRef = useRef();
+  const [frameSrc, setFrameSrc] = useState("");
 
   const handleEnterPressed = () => {
     if (ytRegex.test(youtubeURLRef.current.value)) {
       setYoutubeID(youtubeURLRef.current.value);
-      youtubeFrameRef.current.src = `https://www.youtube.com/embed/${youtubeURLRef.current.value}`;
-    } else youtubeFrameRef.current.src = "";
+      setFrameSrc(
+        `https://www.youtube.com/embed/${youtubeURLRef.current.value}`
+      );
+    } else setFrameSrc("");
   };
 
   return (
@@ -26,7 +29,7 @@ const AddMusic = ({ handlePlayNowClicked, handleAddToQueue }) => {
           e.stopPropagation();
           e.preventDefault();
 
-          const text = e.clipboardData.getData('Text');
+          const text = e.clipboardData.getData("Text");
           e.target.value = text.substring(text.length - 11);
         }}
         onKeyUp={(e) => {
@@ -38,25 +41,34 @@ const AddMusic = ({ handlePlayNowClicked, handleAddToQueue }) => {
       />
       <iframe
         ref={youtubeFrameRef}
-        className=""
+        className={frameSrc.length === 0 ? "hidden" : ""}
         title="youtubePreview"
         width="560"
         height="315"
+        src={frameSrc}
       ></iframe>
-      <div className=" buttons-group">
+      <div className={`${frameSrc.length === 0 ? "hidden" : ""} buttons-group`}>
         <ButtonWithIcon
+          disabled={queue[0] && queue[0].watch_id === youtubeID}
           className="bg-black fg-white"
           icon={playSVG}
-          text="Play now"
+          text={
+            queue[0] && queue[0].watch_id === youtubeID ? "Playing" : "Play now"
+          }
           onClick={() => {
             handlePlayNowClicked(youtubeID);
           }}
         />
         <ButtonWithIcon
           className="bg-grey fg-white"
+          disabled={queue.find((track) => track.watch_id === youtubeID)}
           icon={queueSVG}
-          text="Add to Queue"
-          onClick={()=>{
+          text={
+            queue.find((track) => track.watch_id === youtubeID)
+              ? "In queue"
+              : "Add to Queue"
+          }
+          onClick={() => {
             handleAddToQueue(youtubeID);
           }}
         />
