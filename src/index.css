@@ -7,7 +7,7 @@
   --charcoalgrey: #5e5e5e;
   --silver: #b8b8b8;
   --white: #fff;
-  --red: #cd201f;
+  --red: #e60e0e;
 }
 
 * {
@@ -93,6 +93,12 @@ div#root,
   padding-top: 20px;
   margin-left: 50px;
   display: flex;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .svg-icon {
