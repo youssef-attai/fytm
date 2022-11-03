@@ -1,10 +1,10 @@
-import Player from "./Player";
-import AddMusic from "./AddMusic";
-import Queue from "./Queue";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { heartSVG, plusSVG, queueSVG, youtubeSVG } from "./icons";
+import { AddMusic } from "./features/addMusic/AddMusic";
+import { Player } from "./features/player/Player";
+import { Queue } from "./features/queue/Queue";
 
-const App = (props) => {
+export function App(props) {
   return (
     <div className="app">
       <Router>
@@ -29,13 +29,11 @@ const App = (props) => {
           </nav>
           <Routes>
             <Route path="/add" element={<AddMusic />} />
-            <Route path="/queue" element={<Queue queue={[]}/>} />
+            <Route path="/queue" element={<Queue queue={[]} />} />
           </Routes>
         </div>
         <Player />
       </Router>
     </div>
   );
-};
-
-export default App;
+}

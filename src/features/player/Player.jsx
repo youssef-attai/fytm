@@ -1,12 +1,12 @@
-import ButtonWithIcon from "./Components/ButtonWithIcon";
+import ButtonWithIcon from "../../Components/ButtonWithIcon";
 import {
   playerNextSVG,
   playerPreviousSVG,
   playerPlaySVG,
   playerPauseSVG,
-} from "./icons";
+} from "../../icons";
 
-const Player = (props) => {
+export function Player(props) {
   return (
     <div className="player">
       <audio
@@ -28,6 +28,4 @@ const Player = (props) => {
       <input type="range" />
     </div>
   );
-};
-
-export default Player;
+}

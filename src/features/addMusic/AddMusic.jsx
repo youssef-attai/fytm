@@ -1,8 +1,9 @@
-import ButtonWithIcon from "./Components/ButtonWithIcon";
-import { heartSVG, queueSVG, playSVG } from "./icons";
+import ButtonWithIcon from "../../Components/ButtonWithIcon";
+import { heartSVG, queueSVG, playSVG } from "../../icons";
 
-const AddMusic = (props) => {
-  const ytRegex = /\S{11}/;
+export function AddMusic(props) {
+  // const ytRegex = /\S{11}/;
+  
 
   return (
     <div className="page__add-music">
@@ -22,12 +23,7 @@ const AddMusic = (props) => {
         }}
         placeholder="Paste YouTube video ID here..."
       />
-      <iframe
-        title="youtubePreview"
-        width="560"
-        height="315"
-        src={""}
-      ></iframe>
+      <iframe title="youtubePreview" width="560" height="315" src={""}></iframe>
       <div className={`buttons-group`}>
         <ButtonWithIcon
           className="big-btn bg-black fg-white"
@@ -49,6 +45,4 @@ const AddMusic = (props) => {
       </div>
     </div>
   );
-};
-
-export default AddMusic;
+}
