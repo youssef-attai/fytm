@@ -15,10 +15,12 @@ export const queueSlice = createSlice({
   },
   reducers: {
     nextInQueue: (state) => {
-      state.currentIndex += 1;
+      if (state.currentIndex + 1 < state.tracks.length) state.currentIndex += 1;
+      else state.currentIndex = 0;
     },
     prevInQueue: (state) => {
-      state.currentIndex -= 1;
+      if (state.currentIndex - 1 >= 0) state.currentIndex -= 1;
+      else state.currentIndex = state.tracks.length - 1;
     },
     setCurrentIndex: (state, action) => {
       state.currentIndex = action.payload;
@@ -45,6 +47,7 @@ export const queueSlice = createSlice({
   },
 });
 
-export const { nextInQueue, prevInQueue, setCurrentIndex, removeTrack } = queueSlice.actions;
+export const { nextInQueue, prevInQueue, setCurrentIndex, removeTrack } =
+  queueSlice.actions;
 
 export default queueSlice.reducer;
