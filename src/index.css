@@ -252,3 +252,65 @@ button:disabled {
 .track .track-thumbnail {
   width: 200px;
 }
+
+input[type="range"] {
+  overflow: hidden;
+  height: 16px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 10px;
+  cursor: pointer;
+  background: #ff4f4f;
+  border-radius: 10px;
+  border: none;
+}
+input[type="range"]::-moz-range-progress {
+  height: 10px;
+  cursor: pointer;
+  background: #c20404;
+  border-radius: 10px;
+  border: none;
+}
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  height: 0;
+  width: 0;
+}
+
+input[type="range"]::-ms-track {
+  height: 10px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: #ff4f4f;
+  border-radius: 20px;
+  border: none;
+}
+input[type="range"]::-ms-fill-upper {
+  background: #ff4f4f;
+  border: 0px solid #000000;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type="range"]::-ms-thumb {
+  margin-top: 1px;
+  border: none;
+  height: 0;
+  width: 0;
+}
+input[type="range"]:focus::-ms-fill-lower {
+  background: #c20404;
+}
+input[type="range"]:focus::-ms-fill-upper {
+  background: #ff4f4f;
+}
