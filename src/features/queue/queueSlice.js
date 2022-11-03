@@ -1,8 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const addTrack = createAsyncThunk("queue/addTrack", (watchId) =>
+  axios.get(`https://wmlhgm.deta.dev/track/${watchId}`).then((res) => res.data)
+);
 
 export const queueSlice = createSlice({
   name: "queue",
   initialState: {
+    loading: false,
+    errorMsg: "",
     tracks: [],
     currentIndex: -1,
   },
@@ -13,11 +20,8 @@ export const queueSlice = createSlice({
     prevInQueue: (state) => {
       state.currentIndex -= 1;
     },
-    addTrack: (state, action) => {
-      const exists = state.tracks.find(
-        (track) => track.watchId === action.payload.watchId
-      );
-      if (!exists) state.tracks.push(action.payload);
+    setCurrentIndex: (state, action) => {
+      state.currentIndex = action.payload;
     },
     removeTrack: (state, action) => {
       state.tracks = state.tracks.filter(
@@ -25,9 +29,22 @@ export const queueSlice = createSlice({
       );
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(addTrack.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(addTrack.fulfilled, (state, action) => {
+      state.loading = false;
+      state.tracks.push(action.payload);
+      state.errorMsg = "";
+    });
+    builder.addCase(addTrack.rejected, (state, action) => {
+      state.loading = false;
+      state.errorMsg = action.error.message;
+    });
+  },
 });
 
-export const { nextInQueue, prevInQueue, addTrack, removeTrack } =
-  queueSlice.actions;
+export const { nextInQueue, prevInQueue, setCurrentIndex, removeTrack } = queueSlice.actions;
 
 export default queueSlice.reducer;
