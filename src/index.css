@@ -138,6 +138,10 @@ div#root,
   align-items: center;
 }
 
+.player-slider {
+  width: 80%;
+}
+
 .logo {
   user-select: none;
   padding-top: 30px;
