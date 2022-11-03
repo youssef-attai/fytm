@@ -21,6 +21,7 @@ export function Player(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    audioRef.current.currentTime = 0;
     audioRef.current.src =
       currentIndex >= 0 && currentIndex < tracks.length
         ? tracks[currentIndex].audio_url
@@ -31,13 +32,6 @@ export function Player(props) {
     if (playing) audioRef.current.play();
     else audioRef.current.pause();
   }, [playing]);
-
-  // useEffect(() => {
-  //   if (audioRef.current.duration)
-  //     audioRef.current.currentTime =
-  //       sliderPosition * (audioRef.current.duration / 100);
-  //   else audioRef.current.currentTime = 0;
-  // }, [sliderPosition]);
 
   return (
     <div className="player">
