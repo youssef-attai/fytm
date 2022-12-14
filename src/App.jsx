@@ -7,7 +7,7 @@ import { Queue } from "./features/queue/Queue";
 export function App(props) {
   return (
     <div className="app">
-      <Router>
+      <Router basename="/fytm">
         <div className="container">
           <nav className="sidebar">
             <h1 className="logo">
