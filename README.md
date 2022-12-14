@@ -8,7 +8,7 @@ A free music streaming service.
 </h2>
 
 <h3>
-How does it work?
+How to use
 </h3>
 
 #### **Step 1**
