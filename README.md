@@ -7,9 +7,9 @@ Free YouTube Music
 A free music streaming service.
 </h3>
 
-<h3>
-Stream music now
-</h3>
+<h4>
+**Stream music now**
+</h4>
 
 [![GitHub pages link](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)](https://youssef-attai.github.io/fytm/)
 
