@@ -3,9 +3,13 @@
 Free YouTube Music
 </h1>
 
-<h2>
+<h3>
 A free music streaming service.
-</h2>
+</h3>
+
+#### **Stream music now**
+
+[![GitHub pages link](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)](https://youssef-attai.github.io/fytm/)
 
 <h3>
 How to use
@@ -39,10 +43,3 @@ Click **Queue** in the side menu, you should see the track you just added in the
 #### **Step 6**
 
 Hit the **play** button and enjoy!
-
-<h3>
-Stream music now
-</h3>
-
-[![GitHub pages link](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)](https://youssef-attai.github.io/fytm/)
-
