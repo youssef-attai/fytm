@@ -11,6 +11,10 @@ A free music streaming service.
 
 [![GitHub pages link](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)](https://youssef-attai.github.io/fytm/)
 
+**Please note that FYTM is still under development**
+
+- Adding tracks to favorites is not working yet
+
 <h3>
 How to use
 </h3>
